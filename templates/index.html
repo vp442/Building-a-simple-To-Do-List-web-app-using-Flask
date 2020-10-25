@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Tasks</h2>
+    {% for task in tasks %}
+        <div class="card">
+            <div class="card-body">
+                <h3>{{ task.title }}</h3> 
+                <p>Added on {{ task.date }}</p>
+                <a href="{{ url_for('edit',task_id=task.id) }}" class="pure-button pure-button-primary">Edit</a>
+                <a href="{{ url_for('delete',task_id=task.id) }}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>      
+    {% endfor %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+{% endblock %}

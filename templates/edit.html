@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<form action="{{ url_for('edit', task_id=task_id) }}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <h3>Edit Task</h3>
+        <div class="col">
+            {{ form.title }}
+        </div>
+        <div class="col">
+            {{ form.submit(class="pure-button pure-button-primary") }}
+        </div>
+    </div>
+</form>
+{% endblock %}
